@@ -1,7 +1,5 @@
 # Rede Hierárquica e Colapsada — Cisco Packet Tracer
 
-## Aluno
-Claudecir Rodrigues de Alcantara
 
 ## Estrutura da Rede
 - **Camada de Núcleo**: Router0, Switch0, Switch1
@@ -15,12 +13,7 @@ Claudecir Rodrigues de Alcantara
   - 5 Notebooks (Laptop0 a Laptop4) — rede direita
   - 1 Servidor — rede direita
 
-## Endereçamento IP
-- **Rede Esquerda**: 192.168.1.0/24 — Gateway: 192.168.1.1
-- **Rede Direita**: 192.168.2.0/24 — Gateway: 192.168.2.1
-- **Roteador**:
-  - GigabitEthernet0/0: 192.168.1.1/24
-  - GigabitEthernet0/1: 192.168.2.1/24
+
 
 ## Arquivos
 - `atividade_rede_hierarquica_Claudecir_Alcantara.pkt` — Projeto Cisco Packet Tracer
