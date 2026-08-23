@@ -19,4 +19,4 @@ Todos os dispositivos se comunicam com sucesso via comando `ping`, com **0% de p
 ## Arquivos
 - Diagrama da rede montada no Cisco Packet Tracer
 - Resultado dos testes de conectividade
--
+
