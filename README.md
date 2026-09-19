@@ -20,6 +20,7 @@ Todos os dispositivos se comunicam com sucesso via comando `ping`, com **0% de p
 - Diagrama da rede montada no Cisco Packet Tracer
 - Resultado dos testes de conectividade
 
+
 Dispositivo	IP	Máscara	Gateway
 PC0	192.168.1.10	255.255.255.0	192.168.1.1
 PC1	192.168.1.11	255.255.255.0	192.168.1.1
@@ -30,4 +31,4 @@ Laptop1	192.168.1.21	255.255.255.0	192.168.1.1
 Laptop2	192.168.1.22	255.255.255.0	192.168.1.1
 Laptop3	192.168.1.23	255.255.255.0	192.168.1.1
 Server0	192.168.1.30	255.255.255.0	192.168.1.1
-Router0 (Fa0/0)	192.168.1.1	255.255.255.0	—
+Router0 (Fa0/0)	192.168.1.1	255.255.255.0	
