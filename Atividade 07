@@ -1,0 +1,15 @@
+Objetivo
+ 
+Configurar os enlaces de interligação entre as camadas Acesso, Distribuição e Núcleo da topologia hierárquica, garantindo que as VLAN 10 (Alunos) e VLAN 20 (Visitantes) consigam trafegar por toda a rede.
+ 
+Procedimento
+ 
+1. Mapeamento de todos os enlaces entre as camadas da topologia
+2. Configuração do modo trunk + encapsulamento dot1q em cada interface (ambos os lados do cabo)
+3. Liberação apenas das VLANs 10 e 20 nos trunks
+4. Sincronização da VLAN nativa para evitar incompatibilidade
+
+ 
+Conclusão
+ 
+Após finalizar a configuração, os hosts de uma mesma VLAN conseguem se comunicar mesmo estando em switches diferentes, mantendo o isolamento lógico entre os grupos de Alunos e Visitantes conforme solicitado.
