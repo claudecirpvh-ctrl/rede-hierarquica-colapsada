@@ -11,5 +11,4 @@ Procedimento
 
  
 Conclusão
- 
 Após finalizar a configuração, os hosts de uma mesma VLAN conseguem se comunicar mesmo estando em switches diferentes, mantendo o isolamento lógico entre os grupos de Alunos e Visitantes conforme solicitado.
