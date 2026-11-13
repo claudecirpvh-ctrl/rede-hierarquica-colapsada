@@ -1,0 +1,82 @@
+# Avaliação 08 – Agregação de Links (EtherChannel / LACP + Trunk)
+
+## 🎯 Objetivo da Atividade
+Configurar canais de agregação de links na topologia hierárquica:
+‑ 2 Gbps: entre switches de distribuição e núcleo
+‑ 4 Gbps: entre os dois switches de núcleo
+Todos os Port‑channels devem ser configurados como tronco (trunk) para as VLANs definidas, com validação por ping e tracert ponta‑a‑ponta.
+
+## 01. Diagrama da Topologia
+> Cole aqui a imagem do diologia atualizado com a legenda abaixo:
+
+### Legenda dos Port‑channels
+‑ **Port‑channel 1 (4 Gbps): SW_CORE_ESQ ↔ SW_CORE_DIR**
+  Interfaces: Fa0/1, Fa1/1, Fa2/1, Fa3/1
+  Protocolo: LACP
+  Modo: ESQ = Active | DIR = Passive
+  Tipo: Trunk 802.1Q
+
+‑ **Port‑channel 2 (2 Gbps): SW_CORE_ESQ ↔ SW_DIST_ESQ**
+  Interfaces: [preencha com suas 2 portas]
+  Protocolo: LACP
+  Modo: Active / Passive
+  Tipo: Trunk 802.1Q
+
+‑ **Port‑channel 3 (2 Gbps): SW_CORE_DIR ↔ SW_DIST_DIR**
+  Interfaces: [preencha com suas 2 portas]
+  Protocolo: LACP
+  Modo: Active / Passive
+  Tipo: Trunk 802.1Q
+
+## 02. Documentação Técnica Detalhada
+
+### 2.1 Dados das VLANs
+| ID VLAN | Nome da VLAN |
+|---|---|
+| 10 | ALUNOS |
+| 20 | VISITANTES |
+
+### 2.2 Mapeamento das Interfaces
+
+#### SW_CORE_ESQ
+| Interface Física | Interface Lógica | Função | Configuração |
+|---|---|---|---|
+| Fa0/1 | Port‑channel 1 | Agregação 4 Gbps para SW_CORE_DIR | Trunk / LACP Active |
+| Fa1/1 | Port‑channel 1 | Agregação 4 Gbps para SW_CORE_DIR | Trunk / LACP Active |
+| Fa2/1 | Port‑channel 1 | Agregação 4 Gbps para SW_CORE_DIR | Trunk / LACP Active |
+| Fa3/1 | Port‑channel 1 | Agregação 4 Gbps para SW_CORE_DIR | Trunk / LACP Active |
+
+#### SW_CORE_DIR
+| Interface Física | Interface Lógica | Função | Configuração |
+|---|---|---|---|
+| Fa0/1 | Port‑channel 1 | Agregação 4 Gbps para SW_CORE_ESQ | Trunk / LACP Passive |
+| Fa1/1 | Port‑channel 1 | Agregação 4 Gbps para SW_CORE_ESQ | Trunk / LACP Passive |
+| Fa2/1 | Port‑channel 1 | Agregação 4 Gbps para SW_CORE_ESQ | Trunk / LACP Passive |
+| Fa3/1 | Port‑channel 1 | Agregação 4 Gbps para SW_CORE_ESQ | Trunk / LACP Passive |
+
+> Adicione as tabelas para os Port‑channels 2 e 3 com as portas dos switches de distribuição
+
+## 03. Passo‑a‑Passo da Configuração Cisco IOS
+
+### 3.1 Limpeza das configurações antigas (SW_CORE_ESQ)
+```ios
+enable
+configure terminal
+interface FastEthernet0/1
+ no channel‑group 1
+exit
+interface FastEthernet1/1
+ no channel‑group 1
+exit
+interface FastEthernet2/1
+ no channel‑group 1
+exit
+interface FastEthernet3/1
+ no channel‑group 1
+exit
+interface FastEthernet4/1
+ no channel‑group 1
+exit
+no interface Port‑channel 1
+exit
+write memory
